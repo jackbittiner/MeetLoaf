@@ -26,12 +26,23 @@ class MeetingTracker extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          {numberOfSeconds}
+          {timeFormatter(numberOfSeconds)}
         </p>
         <button onClick={this.handleStartTimer}>Start</button>
       </div>
     );
   }
+}
+
+const timeFormatter = (numberOfSeconds) => {
+  const hours   = Math.floor(numberOfSeconds / 3600);
+  const minutes = Math.floor((numberOfSeconds - (hours * 3600)) / 60);
+  const seconds = numberOfSeconds - (hours * 3600) - (minutes * 60);
+
+  var result = (hours < 10 ? "0" + hours : hours);
+      result += " : " + (minutes < 10 ? "0" + minutes : minutes);
+      result += " : " + (seconds  < 10 ? "0" + seconds : seconds);
+  return result;
 }
 
 export default MeetingTracker;
