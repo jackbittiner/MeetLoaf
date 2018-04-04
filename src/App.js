@@ -7,14 +7,20 @@ class MeetingTracker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numberOfSeconds: 0
+      numberOfSeconds: 0,
     }
+    this.secondIncrementer = null;
   }
 
+
   handleStartTimer = () => {
-    setInterval( () => this.setState((prevState) => {
+    this.secondIncrementer = setInterval( () => this.setState((prevState) => {
       return {numberOfSeconds: prevState.numberOfSeconds + 1};
     }), 1000);
+  }
+
+  handleStopTimer = () => {
+    clearInterval(this.secondIncrementer);
   }
 
   render() {
@@ -29,6 +35,7 @@ class MeetingTracker extends Component {
           {timeFormatter(numberOfSeconds)}
         </p>
         <button onClick={this.handleStartTimer}>Start</button>
+        <button onClick={this.handleStopTimer}>Stop</button>
       </div>
     );
   }
