@@ -2,8 +2,23 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+class MeetingTracker extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      numberOfSeconds: 0
+    }
+  }
+
+  handleStartTimer = () => {
+    setInterval( () => this.setState((prevState) => {
+      return {numberOfSeconds: prevState.numberOfSeconds + 1};
+    }), 1000);
+  }
+
   render() {
+    const {numberOfSeconds} = this.state
     return (
       <div className="App">
         <header className="App-header">
@@ -11,11 +26,12 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          {numberOfSeconds}
         </p>
+        <button onClick={this.handleStartTimer}>Start</button>
       </div>
     );
   }
 }
 
-export default App;
+export default MeetingTracker;
