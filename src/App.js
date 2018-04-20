@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Sprint from './components/sprint';
 
 class MeetingTracker extends Component {
 
@@ -36,6 +37,7 @@ class MeetingTracker extends Component {
         </p>
         <button onClick={this.handleStartTimer}>Start</button>
         <button onClick={this.handleStopTimer}>Stop</button>
+        <Sprint meetings={currentSprint.meetings} />
       </div>
     );
   }
@@ -53,3 +55,39 @@ const timeFormatter = (numberOfSeconds) => {
 }
 
 export default MeetingTracker;
+
+
+const currentSprint = {
+    meetings: [
+      {
+        id: 1,
+        numberOfAttendees: 4,
+        meetingLength: 3600
+      },
+      {
+        id: 2,
+        numberOfAttendees: 3,
+        meetingLength: 3000
+      },
+      {
+        id: 3,
+        numberOfAttendees: 5,
+        meetingLength: 1800
+      },
+      {
+        id: 4,
+        numberOfAttendees: 5,
+        meetingLength: 1000
+      },
+      {
+        id: 5,
+        numberOfAttendees: 4,
+        meetingLength: 3500
+      },
+      {
+        id: 6,
+        numberOfAttendees: 5,
+        meetingLength: 3333
+      }
+  ]
+}
