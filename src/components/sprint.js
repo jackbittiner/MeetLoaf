@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Meeting from './meeting'
+import timeFormatter from '../utils/time-formatter';
 
 
 const Sprint = ({meetings}) => {
@@ -17,13 +18,13 @@ const Sprint = ({meetings}) => {
     }, 0)
     
     return(
-        <div class="sprint">
+        <div className="sprint">
             <ul>
                 {listOfMeetings}
             </ul>
 
             <div>
-                TOTAL MEETING TIME: {totalSprintMeetingTime}
+                TOTAL MEETING TIME: {timeFormatter(totalSprintMeetingTime)}
             </div>
         </div>
     );
