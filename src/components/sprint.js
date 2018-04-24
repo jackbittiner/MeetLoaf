@@ -7,9 +7,7 @@ const Sprint = ({meetings}) => {
 
     const listOfMeetings = meetings.map((meeting) => {
         return(
-            <li>
             <Meeting numberOfAttendees={meeting.numberOfAttendees} meetingLength={meeting.meetingLength} />
-            </li>
         )
     })
 
@@ -19,10 +17,7 @@ const Sprint = ({meetings}) => {
     
     return(
         <div className="sprint">
-            <ul>
-                {listOfMeetings}
-            </ul>
-
+            {listOfMeetings}
             <div>
                 TOTAL MEETING TIME: {timeFormatter(totalSprintMeetingTime)}
             </div>
