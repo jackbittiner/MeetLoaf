@@ -11,12 +11,20 @@ const Sprint = ({meetings}) => {
             </li>
         )
     })
+
+    const totalSprintMeetingTime = meetings.reduce((totalTime, meeting) => {
+        return totalTime + (meeting.meetingLength * meeting.numberOfAttendees);
+    }, 0)
     
     return(
         <div class="sprint">
             <ul>
                 {listOfMeetings}
             </ul>
+
+            <div>
+                TOTAL MEETING TIME: {totalSprintMeetingTime}
+            </div>
         </div>
     );
 }
