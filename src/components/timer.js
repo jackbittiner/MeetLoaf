@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import timeFormatter from "../utils/time-formatter";
+import { allSprints } from "../dummy-data/all-sprints";
 
 export default class Timer extends Component {
   constructor(props) {
@@ -24,6 +25,31 @@ export default class Timer extends Component {
     clearInterval(this.secondIncrementer);
   };
 
+  handleSubmit = () => {
+    if(this.state.numberOfSeconds > 0) {
+      this.handleStopTimer();
+        allSprints.sprints[allSprints.sprints.length - 1].meetings.push(
+          {
+          id: 31,
+          numberOfAttendees: 5,
+          meetingLength: this.state.numberOfSeconds
+        }
+      );
+      this.resetTimer();
+    }
+  }
+
+  handleClear = () => {
+    this.handleStopTimer();
+    this.resetTimer();
+  }
+
+  resetTimer = () => {
+    this.setState(prevState => {
+      return { numberOfSeconds: 0 };
+    })
+  }
+
   render() {
     const { numberOfSeconds } = this.state;
     return (
@@ -31,6 +57,8 @@ export default class Timer extends Component {
         <p className="App-intro">{timeFormatter(numberOfSeconds)}</p>
         <button onClick={this.handleStartTimer}>Start</button>
         <button onClick={this.handleStopTimer}>Stop</button>
+        <button onClick={this.handleSubmit}>Submit</button>
+        <button onClick={this.handleClear}>Clear</button>
       </div>
     );
   }
