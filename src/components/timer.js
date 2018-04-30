@@ -65,7 +65,7 @@ export default class Timer extends Component {
         <button onClick={this.handleSubmit}>Submit</button>
         <button onClick={this.handleClear}>Clear</button>
         <label for="attendeeNum">Number of attendees:</label>
-        <input id="attendeeNum" type="number" value={this.state.numberOfAttendees} onChange={this.handleInputChange} placeholder="Enter" />
+        <input id="attendeeNum" min={0} type="number" value={this.state.numberOfAttendees} onChange={this.handleInputChange} placeholder="Enter" />
       </div>
     );
   }
