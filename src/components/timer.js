@@ -6,7 +6,8 @@ export default class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numberOfSeconds: 0
+      numberOfSeconds: 0,
+      numberOfAttendees: 0
     };
     this.secondIncrementer = null;
   }
@@ -31,7 +32,7 @@ export default class Timer extends Component {
         allSprints.sprints[allSprints.sprints.length - 1].meetings.push(
           {
           id: 31,
-          numberOfAttendees: 5,
+          numberOfAttendees: parseInt(this.state.numberOfAttendees),
           meetingLength: this.state.numberOfSeconds
         }
       );
@@ -50,6 +51,10 @@ export default class Timer extends Component {
     })
   }
 
+  handleInputChange = (event) => {
+    this.setState({numberOfAttendees: event.target.value});
+  }
+
   render() {
     const { numberOfSeconds } = this.state;
     return (
@@ -59,6 +64,8 @@ export default class Timer extends Component {
         <button onClick={this.handleStopTimer}>Stop</button>
         <button onClick={this.handleSubmit}>Submit</button>
         <button onClick={this.handleClear}>Clear</button>
+        <label for="attendeeNum">Number of attendees:</label>
+        <input id="attendeeNum" type="number" value={this.state.numberOfAttendees} onChange={this.handleInputChange} placeholder="Enter" />
       </div>
     );
   }
