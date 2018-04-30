@@ -1,9 +1,14 @@
 import React from "react";
 import Meeting from "./meeting";
 import timeFormatter from "../utils/time-formatter";
-import { currentSprint } from "../dummy-data/current-sprint";
+import { allSprints } from "../dummy-data/all-sprints";
 
 const Sprint = () => {
+
+    const currentSprint = allSprints.sprints.reduce(function(prev, current) {
+      return (prev.y > current.y) ? prev : current
+    });
+
   const listOfMeetings = currentSprint.meetings.map(meeting => {
     return (
       <Meeting
