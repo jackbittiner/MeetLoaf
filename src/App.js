@@ -1,9 +1,14 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import Sprint from "./components/sprint";
 import Timer from "./components/timer";
 
-const Header = () => <header />;
+const Header = () => (
+  <header>
+    <Link to="/">Home</Link>
+    <Link to="/current-sprint">Current Sprint</Link>
+  </header>
+);
 
 const Main = () => (
   <main>
