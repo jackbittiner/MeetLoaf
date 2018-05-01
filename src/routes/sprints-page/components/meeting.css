@@ -1,0 +1,12 @@
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+.meeting-length {
+  background: #30997a;
+}
+.item-2 {
+  background: #6a478f;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import timeFormatter from "../utils/time-formatter";
-import { allSprints } from "../dummy-data/all-sprints";
+import timeFormatter from "../../../utils/time-formatter";
+import { allSprints } from "../../../dummy-data/all-sprints";
 import "./timer.css";
 
 export default class Timer extends Component {

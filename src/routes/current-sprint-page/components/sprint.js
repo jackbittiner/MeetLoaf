@@ -1,15 +1,11 @@
 import React from "react";
 import Meeting from "./meeting";
-import timeFormatter from "../utils/time-formatter";
-import { allSprints } from "../dummy-data/all-sprints";
+import timeFormatter from "../../../utils/time-formatter";
 
-const Sprint = () => {
+const Sprint = props => {
+  const { sprint } = props;
 
-    const currentSprint = allSprints.sprints.reduce((prev, current) => {
-      return (prev.y > current.y) ? prev : current
-    });
-
-  const listOfMeetings = currentSprint.meetings.map(meeting => {
+  const listOfMeetings = sprint.meetings.map(meeting => {
     return (
       <Meeting
         numberOfAttendees={meeting.numberOfAttendees}
@@ -19,7 +15,7 @@ const Sprint = () => {
     );
   });
 
-  const totalSprintMeetingTime = currentSprint.meetings.reduce(
+  const totalSprintMeetingTime = sprint.meetings.reduce(
     (totalTime, meeting) => {
       return totalTime + meeting.meetingLength * meeting.numberOfAttendees;
     },

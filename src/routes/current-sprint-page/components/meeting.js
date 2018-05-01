@@ -1,5 +1,5 @@
 import React from "react";
-import timeFormatter from "../utils/time-formatter";
+import timeFormatter from "../../../utils/time-formatter";
 import "./meeting.css";
 
 const Meeting = ({ numberOfAttendees, meetingLength }) => {
