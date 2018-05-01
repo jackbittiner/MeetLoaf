@@ -1,0 +1,23 @@
+.grid-1 {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: auto auto auto;
+}
+
+.timer {
+  text-align: center;
+}
+
+.formatted-time {
+  text-align: center;
+}
+
+button {
+  margin: 15px;
+  font-weight: bold;
+}
+
+.timer-attendees {
+  font-weight: bold;
+  margin: 15px;
+}

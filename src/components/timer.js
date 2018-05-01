@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import timeFormatter from "../utils/time-formatter";
 import { allSprints } from "../dummy-data/all-sprints";
+import "./timer.css";
 
 export default class Timer extends Component {
   constructor(props) {
@@ -27,45 +28,61 @@ export default class Timer extends Component {
   };
 
   handleSubmit = () => {
-    if(this.state.numberOfSeconds > 0) {
+    if (this.state.numberOfSeconds > 0) {
       this.handleStopTimer();
-        allSprints.sprints[allSprints.sprints.length - 1].meetings.push(
-          {
-          id: 31,
-          numberOfAttendees: parseInt(this.state.numberOfAttendees),
-          meetingLength: this.state.numberOfSeconds
-        }
-      );
+      allSprints.sprints[allSprints.sprints.length - 1].meetings.push({
+        id: 31,
+        numberOfAttendees: parseInt(this.state.numberOfAttendees),
+        meetingLength: this.state.numberOfSeconds
+      });
       this.resetTimer();
     }
-  }
+  };
 
   handleClear = () => {
     this.handleStopTimer();
     this.resetTimer();
-  }
+  };
 
   resetTimer = () => {
     this.setState(prevState => {
       return { numberOfSeconds: 0 };
-    })
-  }
+    });
+  };
 
-  handleInputChange = (event) => {
-    this.setState({numberOfAttendees: event.target.value});
-  }
+  handleInputChange = event => {
+    this.setState({ numberOfAttendees: event.target.value });
+  };
 
   render() {
     const { numberOfSeconds } = this.state;
     return (
-      <div className="App">
-        <p className="App-intro">{timeFormatter(numberOfSeconds)}</p>
-        <button onClick={this.handleStartTimer}>Start</button>
-        <button onClick={this.handleStopTimer}>Stop</button>
-        <button onClick={this.handleSubmit}>Submit</button>
-        <button onClick={this.handleClear}>Clear</button>
-        <label for="attendeeNum">Number of attendees:</label>
-        <input id="attendeeNum" min={0} type="number" value={this.state.numberOfAttendees} onChange={this.handleInputChange} placeholder="Enter" />
+      <div className="timer">
+        <p className="formatted-time">{timeFormatter(numberOfSeconds)}</p>
+        <button className="timer-start" onClick={this.handleStartTimer}>
+          Start
+        </button>
+        <button className="timer-stop" onClick={this.handleStopTimer}>
+          Stop
+        </button>
+        <button className="timer-submit" onClick={this.handleSubmit}>
+          Submit
+        </button>
+        <button className="timer-clear" onClick={this.handleClear}>
+          Clear
+        </button>
+        <div className="timer-attendees">
+          <label for="attendeeNum">Number of attendees:</label>
+          <input
+            className="timer-5"
+            id="attendeeNum"
+            min={0}
+            type="number"
+            value={this.state.numberOfAttendees}
+            onChange={this.handleInputChange}
+            placeholder="Enter"
+          />
+        </div>
       </div>
     );
   }
