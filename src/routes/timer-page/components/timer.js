@@ -14,17 +14,20 @@ export default class Timer extends Component {
   }
 
   handleStartTimer = () => {
-    this.secondIncrementer = setInterval(
-      () =>
-        this.setState(prevState => {
-          return { numberOfSeconds: prevState.numberOfSeconds + 1 };
-        }),
-      1000
-    );
+    if(this.secondIncrementer == null){
+      this.secondIncrementer = setInterval(
+        () =>
+          this.setState(prevState => {
+            return { numberOfSeconds: prevState.numberOfSeconds + 1 };
+          }),
+        1000
+      );
+    }
   };
 
   handleStopTimer = () => {
     clearInterval(this.secondIncrementer);
+    this.secondIncrementer = null;
   };
 
   handleSubmit = () => {
