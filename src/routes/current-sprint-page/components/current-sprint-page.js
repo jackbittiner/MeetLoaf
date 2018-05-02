@@ -1,6 +1,6 @@
 import React from "react";
 import { allSprints } from "../../../dummy-data/all-sprints";
-import Sprint from "./sprint";
+import Sprint from "../../../common/components/sprint";
 
 const CurrentSprintPage = () => {
   const currentSprint = allSprints.sprints.reduce((prev, current) => {

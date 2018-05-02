@@ -1,6 +1,6 @@
 import React from "react";
 import Meeting from "./meeting";
-import timeFormatter from "../../../utils/time-formatter";
+import timeFormatter from "../../utils/time-formatter";
 
 const Sprint = props => {
   const { sprint } = props;

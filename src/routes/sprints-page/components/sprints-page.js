@@ -1,6 +1,6 @@
 import React from "react";
 import { allSprints } from "../../../dummy-data/all-sprints";
-import Sprint from "./sprint";
+import Sprint from "../../../common/components/sprint";
 
 const SprintsPage = () => {
   const listOfSprints = allSprints.sprints.map(sprint => {
