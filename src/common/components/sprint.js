@@ -5,7 +5,7 @@ import timeFormatter from "../../utils/time-formatter";
 const Sprint = props => {
   const { sprint } = props;
 
-  const listOfMeetings = sprint.meetings.map(meeting => {
+  const listOfMeetings = sprint.map(meeting => {
     return (
       <Meeting
         numberOfAttendees={meeting.numberOfAttendees}
@@ -15,7 +15,7 @@ const Sprint = props => {
     );
   });
 
-  const totalSprintMeetingTime = sprint.meetings.reduce(
+  const totalSprintMeetingTime = sprint.reduce(
     (totalTime, meeting) => {
       return totalTime + meeting.meetingLength * meeting.numberOfAttendees;
     },

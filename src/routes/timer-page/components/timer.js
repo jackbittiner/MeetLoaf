@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import timeFormatter from "../../../utils/time-formatter";
 import { allSprints } from "../../../dummy-data/all-sprints";
 import "./timer.css";
@@ -32,6 +33,7 @@ export default class Timer extends Component {
 
   handleSubmit = () => {
     if (this.state.numberOfSeconds > 0) {
+      this.submitMeetingData();
       this.handleStopTimer();
       allSprints.sprints[allSprints.sprints.length - 1].meetings.push({
         id: 31,
@@ -41,6 +43,19 @@ export default class Timer extends Component {
       this.resetTimer();
     }
   };
+
+  submitMeetingData = () => {
+    axios.post('http://www.localhost:3030/meeting', {
+      NumberOfAttendees: this.state.numberOfAttendees,
+      Length: this.state.numberOfSeconds
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
   handleClear = () => {
     this.handleStopTimer();

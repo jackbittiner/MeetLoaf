@@ -1,17 +1,36 @@
-import React from "react";
-import { allSprints } from "../../../dummy-data/all-sprints";
+import React, { Component } from "react";
+import axios from "axios";
 import Sprint from "../../../common/components/sprint";
 
-const CurrentSprintPage = () => {
-  const currentSprint = allSprints.sprints.reduce((prev, current) => {
-    return prev.y > current.y ? prev : current;
-  });
+export default class CurrentSprintPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sprint: []
+    };
+  }
 
-  return (
-    <div className="sprint">
-      <Sprint sprint={currentSprint} />
-    </div>
-  );
+  componentWillMount(){
+    axios
+      .get("http://www.localhost:3030/meeting")
+      .then(response => {
+        const meetings = response.data.data.map(m => {
+          return {
+            id: m.id,
+            numberOfAttendees: m.NumberOfAttendees,
+            meetingLength: m.Length
+          };
+        });
+        this.setState({sprint: meetings});
+      })
+      .catch(error => console.log(error));
+  }
+
+  render() {
+    return (
+      <div className="sprint">
+        <Sprint sprint={this.state.sprint} />
+        </div>
+      );
+    }
 };
-
-export default CurrentSprintPage;
