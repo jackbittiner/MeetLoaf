@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export default function StartSprint() {
   const handleStartSprint = () => {
-    console.log('START A NEW SPRINT M8');
     submitSprintData();
   };
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import timeFormatter from '../../../utils/time-formatter';
-import { allSprints } from '../../../dummy-data/all-sprints';
 import './timer.css';
 import StartSprint from './start-sprint';
 
@@ -20,11 +19,7 @@ export default class Timer extends Component {
     axios
       .get('http://www.localhost:3030/sprint')
       .then(response => {
-        const sprint = response.data.data.map(s => {
-          return {
-            id: s.id
-          };
-        });
+        const sprint = response.data.data.pop();
         this.setState({ currentSprint: sprint });
       })
       .catch(error => console.log(error));
@@ -51,13 +46,6 @@ export default class Timer extends Component {
     if (this.state.numberOfSeconds > 0) {
       this.submitMeetingData();
       this.handleStopTimer();
-      console.log(this.state.currentSprint[0].id);
-      allSprints.sprints[allSprints.sprints.length - 1].meetings.push({
-        id: 31,
-        numberOfAttendees: parseInt(this.state.numberOfAttendees),
-        meetingLength: this.state.numberOfSeconds,
-        sprintId: this.state.currentSprint.id
-      });
       this.resetTimer();
     }
   };
@@ -66,7 +54,8 @@ export default class Timer extends Component {
     axios
       .post('http://www.localhost:3030/meeting', {
         NumberOfAttendees: this.state.numberOfAttendees,
-        Length: this.state.numberOfSeconds
+        Length: this.state.numberOfSeconds,
+        sprintId: this.state.currentSprint.id
       })
       .then(function(response) {
         console.log(response);
