@@ -16,7 +16,6 @@ export default class CurrentSprintPageContainer extends Component {
       .get(`http://localhost:3030/sprint?$limit=0`)
       .then(response => {
         const totalSprints = response.data.total;
-        console.log(response.data.total);
         this.setState({ currentSprintId: totalSprints });
       })
       .catch(error => console.log('sprintId', error));

@@ -10,9 +10,7 @@ export default class CurrentSprintPage extends Component {
     };
   }
 
-  // TODO: http://localhost:3030/meeting?sprintId=5 use this endpoint
   componentWillMount() {
-    console.log(this.props);
     axios
       .get(
         `http://www.localhost:3030/meeting?sprintId=${
@@ -20,7 +18,6 @@ export default class CurrentSprintPage extends Component {
         }`
       )
       .then(response => {
-        console.log(response.data);
         const meetings = response.data.data.map(m => {
           return {
             id: m.id,
@@ -36,7 +33,7 @@ export default class CurrentSprintPage extends Component {
   render() {
     return (
       <div className="sprint">
-        <Sprint sprint={this.state.sprint} />
+        <Sprint sprint={this.state.sprint} {...this.props} />
       </div>
     );
   }
