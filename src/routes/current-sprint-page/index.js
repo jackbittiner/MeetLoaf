@@ -1,1 +1,1 @@
-export { default } from "./components/current-sprint-page";
+export { default } from './components/current-sprint-page-container';
