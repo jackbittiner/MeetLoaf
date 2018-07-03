@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import CurrentSprintPage from './current-sprint-page';
+import React, { Component } from "react";
+import axios from "axios";
+import SprintPage from "./sprint-page";
 
 export default class CurrentSprintPageContainer extends Component {
   constructor(props) {
@@ -10,7 +10,6 @@ export default class CurrentSprintPageContainer extends Component {
     };
   }
 
-  // TODO: http://localhost:3030/meeting?sprintId=5 use this endpoint
   componentWillMount() {
     axios
       .get(`http://localhost:3030/sprint?$limit=0`)
@@ -18,11 +17,11 @@ export default class CurrentSprintPageContainer extends Component {
         const totalSprints = response.data.total;
         this.setState({ currentSprintId: totalSprints });
       })
-      .catch(error => console.log('sprintId', error));
+      .catch(error => console.log("sprintId", error));
   }
 
   render() {
     if (this.state.currentSprintId == null) return null;
-    return <CurrentSprintPage currentSprintId={this.state.currentSprintId} />;
+    return <SprintPage currentSprintId={this.state.currentSprintId} />;
   }
 }

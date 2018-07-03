@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import Sprint from '../../../common/components/sprint';
+import React, { Component } from "react";
+import axios from "axios";
+import Sprint from "../../../common/components/sprint";
 
-export default class CurrentSprintPage extends Component {
+export default class SprintPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +10,7 @@ export default class CurrentSprintPage extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios
       .get(
         `http://www.localhost:3030/meeting?sprintId=${
@@ -27,7 +27,7 @@ export default class CurrentSprintPage extends Component {
         });
         this.setState({ sprint: meetings });
       })
-      .catch(error => console.log('sprintData', error));
+      .catch(error => console.log("sprintData", error));
   }
 
   render() {

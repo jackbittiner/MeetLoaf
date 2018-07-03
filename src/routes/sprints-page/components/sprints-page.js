@@ -1,13 +1,22 @@
-import React from "react";
-import { allSprints } from "../../../dummy-data/all-sprints";
-import Sprint from "../../../common/components/sprint";
+import React, { Component } from "react";
 
-const SprintsPage = () => {
-  const listOfSprints = allSprints.sprints.map(sprint => {
-    return <Sprint sprint={sprint} />;
-  });
+export default class SprintsPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sprints: []
+    };
+  }
 
-  return <div className="sprints">{listOfSprints}</div>;
-};
+  render() {
+    const listOfSprints = this.props.sprints.map(sprint => {
+      return (
+        <a href={"/sprint?id=" + sprint.id}>
+          <button>{sprint.id}</button>
+        </a>
+      );
+    });
 
-export default SprintsPage;
+    return <div className="sprints">{listOfSprints}</div>;
+  }
+}

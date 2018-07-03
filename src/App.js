@@ -1,9 +1,10 @@
-import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
-import CurrentSprintPage from './routes/current-sprint-page/index';
-import TimerPage from './routes/timer-page/index';
-import SprintsPage from './routes/sprints-page/index';
-import './App.css';
+import React from "react";
+import { Route, Switch, Link } from "react-router-dom";
+import CurrentSprintPage from "./routes/current-sprint-page/index";
+import TimerPage from "./routes/timer-page/index";
+import SprintsPage from "./routes/sprints-page/index";
+import SprintPageContainer from "./routes/current-sprint-page/components/sprint-page-container";
+import "./App.css";
 
 const Header = () => (
   <header className="item-1">
@@ -19,6 +20,7 @@ const Main = () => (
       <Route exact path="/" component={TimerPage} />
       <Route exact path="/current-sprint" component={CurrentSprintPage} />
       <Route exact path="/sprints" component={SprintsPage} />
+      <Route path="/sprint" component={SprintPageContainer} />
     </Switch>
   </main>
 );

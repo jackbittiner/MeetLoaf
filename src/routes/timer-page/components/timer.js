@@ -111,7 +111,7 @@ export default class Timer extends Component {
             />
           </div>
         </div>
-
+        <div>Current Sprint: {this.state.currentSprint && this.state.currentSprint.id}</div>
         <StartSprint />
       </container>
     );
