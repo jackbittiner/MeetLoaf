@@ -4,7 +4,6 @@ import timeFormatter from "../../../utils/time-formatter";
 import StartSprint from "./start-sprint";
 import "./timer.css";
 
-import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 
 export default class Timer extends Component {

@@ -1,5 +1,6 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
+import Button from "@material-ui/core/Button";
 
 export default function StartSprint() {
   const handleStartSprint = () => {
@@ -8,7 +9,7 @@ export default function StartSprint() {
 
   const submitSprintData = () => {
     axios
-      .post('http://www.localhost:3030/sprint', {})
+      .post("http://www.localhost:3030/sprint", {})
       .then(function(response) {
         console.log(response);
       })
@@ -18,8 +19,13 @@ export default function StartSprint() {
   };
 
   return (
-    <button className="start-sprint" onClick={handleStartSprint}>
+    <Button
+      variant="contained"
+      color="primary"
+      className="start-sprint"
+      onClick={handleStartSprint}
+    >
       New Sprint
-    </button>
+    </Button>
   );
 }
