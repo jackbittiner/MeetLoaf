@@ -4,6 +4,9 @@ import timeFormatter from "../../../utils/time-formatter";
 import StartSprint from "./start-sprint";
 import "./timer.css";
 
+import PropTypes from "prop-types";
+import Button from "@material-ui/core/Button";
+
 export default class Timer extends Component {
   constructor(props) {
     super(props);
@@ -88,24 +91,44 @@ export default class Timer extends Component {
           <p>{timeFormatter(numberOfSeconds)}</p>
         </div>
         <div className="startButton">
-          <button className="timerButton" onClick={this.handleStartTimer}>
+          <Button
+            className="timerButton"
+            variant="contained"
+            onClick={this.handleStartTimer}
+            color="primary"
+          >
             Start
-          </button>
+          </Button>
         </div>
         <div className="stopButton">
-          <button className="timerButton" onClick={this.handleStopTimer}>
+          <Button
+            variant="contained"
+            color="primary"
+            className="timerButton"
+            onClick={this.handleStopTimer}
+          >
             Stop
-          </button>
+          </Button>
         </div>
         <div className="submitButton">
-          <button className="timerButton" onClick={this.handleSubmit}>
+          <Button
+            variant="contained"
+            color="primary"
+            className="timerButton"
+            onClick={this.handleSubmit}
+          >
             Submit
-          </button>
+          </Button>
         </div>
         <div className="clearButton">
-          <button className="timerButton" onClick={this.handleClear}>
+          <Button
+            variant="contained"
+            color="primary"
+            className="timerButton"
+            onClick={this.handleClear}
+          >
             Clear
-          </button>
+          </Button>
         </div>
         <div className="numberOfAttendees">
           <label for="attendeeNum">Number of attendees:</label>
