@@ -4,18 +4,25 @@ import CurrentSprintPage from "./routes/current-sprint-page/index";
 import TimerPage from "./routes/timer-page/index";
 import SprintsPage from "./routes/sprints-page/index";
 import SprintPageContainer from "./routes/current-sprint-page/components/sprint-page-container";
-import "./App.css";
+import "./app.css";
 
 const Header = () => (
-  <header className="item-1">
-    <Link to="/">Home</Link>
-    <Link to="/current-sprint">Current Sprint</Link>
-    <Link to="/sprints">Sprints</Link>
+  <header className="header">
+    <div className="emptyHeader" />
+    <Link className="headerItem" to="/">
+      Home
+    </Link>
+    <Link className="headerItem" to="/current-sprint">
+      Current Sprint
+    </Link>
+    <Link className="headerItem" to="/sprints">
+      Sprints
+    </Link>
   </header>
 );
 
 const Main = () => (
-  <main className="item-2">
+  <main>
     <Switch>
       <Route exact path="/" component={TimerPage} />
       <Route exact path="/current-sprint" component={CurrentSprintPage} />
@@ -26,7 +33,7 @@ const Main = () => (
 );
 
 const App = () => (
-  <div className="grid-1">
+  <div>
     <Header />
     <Main />
   </div>
