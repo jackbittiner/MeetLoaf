@@ -1,71 +1,57 @@
-.grid-1 {
+.container {
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 50%;
+  margin: 0 auto;
+  grid-row-gap: 20px;
+  grid-template-areas:
+    ". timer timer ."
+    "start stop submit clear"
+    ". numberOfAttendees numberOfAttendees ."
+    ". currentSprint newSprint .";
 }
 
 .timer {
+  grid-area: timer;
   text-align: center;
 }
 
-.formatted-time {
+.startButton {
+  grid-area: start;
   text-align: center;
 }
 
-.timer-attendees {
-  font-weight: bold;
-  margin: 15px;
+.stopButton {
+  grid-area: stop;
+  text-align: center;
 }
 
-/* Reset */
-button {
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  outline: 0;
-  margin: 15px;
-
-  -webkit-appearance: none;
+.submitButton {
+  grid-area: submit;
+  text-align: center;
 }
 
-/* Custom */
-button {
-  display: inline-block;
-  position: relative;
-  padding: 20px 38px;
-  top: 0;
-  font-size: 30px;
-  font-family: "Open Sans", Helvetica;
-  border-radius: 4px;
-  border-bottom: 1px solid rgba(28, 227, 125, 0.5);
-  background: rgb(22, 36, 230);
-  color: #fff;
-  box-shadow: 0px 0px 0px rgba(15, 165, 60, 0.1);
-
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+.clearButton {
+  grid-area: clear;
+  text-align: center;
 }
 
-button:hover {
-  top: -10px;
-  box-shadow: 0px 10px 10px rgba(15, 165, 60, 0.5);
-
-  -webkit-transform: rotateX(20deg);
-  -moz-transform: rotateX(20deg);
-  -ms-transform: rotateX(20deg);
-  transform: rotateX(20deg);
+.numberOfAttendees {
+  grid-area: numberOfAttendees;
+  text-align: center;
 }
 
-button:active {
-  top: 0px;
-  box-shadow: 0px 0px 0px rgba(15, 165, 60, 0);
-  background: rgb(20, 34, 224);
+.currentSprint {
+  grid-area: currentSprint;
+  text-align: center;
+}
+
+.newSprint {
+  grid-area: newSprint;
+  text-align: center;
+}
+
+.timerButton {
+  background-color: #1a237e;
+  color: #ffffff;
 }

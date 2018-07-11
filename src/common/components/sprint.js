@@ -1,6 +1,6 @@
-import React from 'react';
-import Meeting from './meeting';
-import timeFormatter from '../../utils/time-formatter';
+import React from "react";
+import Meeting from "./meeting";
+import timeFormatter from "../../utils/time-formatter";
 
 const Sprint = props => {
   const { sprint } = props;
@@ -20,7 +20,7 @@ const Sprint = props => {
   }, 0);
 
   return (
-    <div className="sprint">
+    <div>
       <h3>Sprint {props.currentSprintId} </h3>
       {listOfMeetings}
       <div>TOTAL MEETING TIME: {timeFormatter(totalSprintMeetingTime)}</div>
