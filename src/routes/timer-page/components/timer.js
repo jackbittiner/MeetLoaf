@@ -24,7 +24,7 @@ export default class Timer extends Component {
         const sprint = response.data.data.pop();
         this.setState({ currentSprint: sprint });
       })
-      .catch(error => console.log(error));
+      .catch(error => 'console.log(error)');
   }
 
   handleStartTimer = () => {
@@ -130,7 +130,7 @@ export default class Timer extends Component {
           </Button>
         </div>
         <div className="numberOfAttendees">
-          <label for="attendeeNum">Number of attendees:</label>
+          <label htmlFor="attendeeNum">Number of attendees:</label>
           <input
             id="attendeeNum"
             min={0}
