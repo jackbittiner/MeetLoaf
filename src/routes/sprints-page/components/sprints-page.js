@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import "./sprints-page.css";
+
+import Button from "@material-ui/core/Button";
 
 export default class SprintsPage extends Component {
   constructor(props) {
@@ -11,9 +14,13 @@ export default class SprintsPage extends Component {
   render() {
     const listOfSprints = this.props.sprints.map(sprint => {
       return (
-        <a href={"/sprint?id=" + sprint.id}>
-          <button>{sprint.id}</button>
-        </a>
+        <div className="sprintButton">
+          <a href={"/sprint?id=" + sprint.id}>
+            <Button variant="contained" color="primary">
+              Sprint {sprint.id}
+            </Button>
+          </a>
+        </div>
       );
     });
 

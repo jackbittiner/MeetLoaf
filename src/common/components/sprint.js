@@ -1,6 +1,7 @@
 import React from "react";
 import Meeting from "./meeting";
 import timeFormatter from "../../utils/time-formatter";
+import "./sprint.css";
 
 const Sprint = props => {
   const { sprint } = props;
@@ -20,7 +21,7 @@ const Sprint = props => {
   }, 0);
 
   return (
-    <div>
+    <div className="sprint">
       <h3>Sprint {props.currentSprintId} </h3>
       {listOfMeetings}
       <div>TOTAL MEETING TIME: {timeFormatter(totalSprintMeetingTime)}</div>

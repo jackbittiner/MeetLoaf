@@ -1,0 +1,7 @@
+.sprint {
+  display: grid;
+  padding-top: 20px;
+  margin: 0 auto;
+  text-align: center;
+  grid-row-gap: 10px;
+}

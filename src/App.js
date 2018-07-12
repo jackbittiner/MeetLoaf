@@ -8,16 +8,17 @@ import "./app.css";
 
 const Header = () => (
   <header className="header">
-    <div className="emptyHeader" />
-    <Link className="headerItem" to="/">
-      Home
-    </Link>
-    <Link className="headerItem" to="/current-sprint">
-      Current Sprint
-    </Link>
-    <Link className="headerItem" to="/sprints">
-      Sprints
-    </Link>
+    <div className="headerItems">
+      <Link className="headerItem" to="/">
+        Home
+      </Link>
+      <Link className="headerItem" to="/current-sprint">
+        Current Sprint
+      </Link>
+      <Link className="headerItem" to="/sprints">
+        Sprints
+      </Link>
+    </div>
   </header>
 );
 
@@ -33,7 +34,7 @@ const Main = () => (
 );
 
 const App = () => (
-  <div>
+  <div className="app">
     <Header />
     <Main />
   </div>
