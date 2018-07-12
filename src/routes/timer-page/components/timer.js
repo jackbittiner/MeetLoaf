@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import axios from "axios";
-import timeFormatter from "../../../utils/time-formatter";
-import StartSprint from "./start-sprint";
-import "./timer.css";
+import React, { Component } from 'react';
+import axios from 'axios';
+import timeFormatter from '../../../utils/time-formatter';
+import StartSprint from './start-sprint';
+import './timer.css';
 
-import Button from "@material-ui/core/Button";
+import Button from '@material-ui/core/Button';
 
 export default class Timer extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ export default class Timer extends Component {
 
   componentWillMount() {
     axios
-      .get("http://www.localhost:3030/sprint")
+      .get('http://www.localhost:3030/sprint')
       .then(response => {
         const sprint = response.data.data.pop();
         this.setState({ currentSprint: sprint });
@@ -54,7 +54,7 @@ export default class Timer extends Component {
 
   submitMeetingData = () => {
     axios
-      .post("http://www.localhost:3030/meeting", {
+      .post('http://www.localhost:3030/meeting', {
         NumberOfAttendees: this.state.numberOfAttendees,
         Length: this.state.numberOfSeconds,
         sprintId: this.state.currentSprint.id
@@ -141,7 +141,7 @@ export default class Timer extends Component {
           />
         </div>
         <div className="currentSprint">
-          Current Sprint:{" "}
+          Current Sprint:{' '}
           {this.state.currentSprint && this.state.currentSprint.id}
         </div>
         <div className="newSprint">

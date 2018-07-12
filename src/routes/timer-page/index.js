@@ -1,1 +1,1 @@
-export { default } from "./components/timer";
+export { default } from './components/timer';

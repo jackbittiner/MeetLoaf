@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import SprintPage from "./sprint-page";
-import queryString from "query-string";
+import React, { Component } from 'react';
+import SprintPage from './sprint-page';
+import queryString from 'query-string';
 
 export default class SprintPageContainer extends Component {
   constructor(props) {

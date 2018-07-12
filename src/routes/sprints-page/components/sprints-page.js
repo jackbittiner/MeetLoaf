@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import "./sprints-page.css";
+import React, { Component } from 'react';
+import './sprints-page.css';
 
-import Button from "@material-ui/core/Button";
+import Button from '@material-ui/core/Button';
 
 export default class SprintsPage extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ export default class SprintsPage extends Component {
     const listOfSprints = this.props.sprints.map(sprint => {
       return (
         <div className="sprintButton">
-          <a href={"/sprint?id=" + sprint.id}>
+          <a href={'/sprint?id=' + sprint.id}>
             <Button variant="contained" color="primary">
               Sprint {sprint.id}
             </Button>

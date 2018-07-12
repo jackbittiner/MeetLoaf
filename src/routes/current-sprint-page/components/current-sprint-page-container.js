@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import axios from "axios";
-import SprintPage from "./sprint-page";
+import React, { Component } from 'react';
+import axios from 'axios';
+import SprintPage from './sprint-page';
 
 export default class CurrentSprintPageContainer extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export default class CurrentSprintPageContainer extends Component {
         const totalSprints = response.data.total;
         this.setState({ currentSprintId: totalSprints });
       })
-      .catch(error => console.log("sprintId", error));
+      .catch(error => console.log('sprintId', error));
   }
 
   render() {

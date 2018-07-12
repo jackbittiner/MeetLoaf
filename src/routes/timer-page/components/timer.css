@@ -5,10 +5,10 @@
   margin: 0 auto;
   grid-row-gap: 20px;
   grid-template-areas:
-    ". timer timer ."
-    "start stop submit clear"
-    ". numberOfAttendees numberOfAttendees ."
-    ". currentSprint newSprint .";
+    '. timer timer .'
+    'start stop submit clear'
+    '. numberOfAttendees numberOfAttendees .'
+    '. currentSprint newSprint .';
 }
 
 .timer {

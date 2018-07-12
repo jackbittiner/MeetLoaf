@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import axios from "axios";
-import Sprint from "../../../common/components/sprint";
+import React, { Component } from 'react';
+import axios from 'axios';
+import Sprint from '../../../common/components/sprint';
 
 export default class SprintPage extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ export default class SprintPage extends Component {
         });
         this.setState({ sprint: meetings });
       })
-      .catch(error => console.log("sprintData", error));
+      .catch(error => console.log('sprintData', error));
   }
 
   render() {

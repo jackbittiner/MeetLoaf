@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import axios from "axios";
-import SprintsPage from "./sprints-page";
+import React, { Component } from 'react';
+import axios from 'axios';
+import SprintsPage from './sprints-page';
 
 export default class SprintsPageContainer extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ export default class SprintsPageContainer extends Component {
         const allSprintIds = response.data.data;
         this.setState({ allSprintIds: allSprintIds });
       })
-      .catch(error => console.log("something else", error));
+      .catch(error => console.log('something else', error));
   }
 
   render() {
